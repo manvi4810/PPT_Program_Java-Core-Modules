@@ -1,0 +1,316 @@
+Q1.Write a simple Banking System program by using OOPs concept where you can get account Holder name balance etc?
+
+public class BankingAccount {
+
+    private String accountHolderName;
+    private Double Balance;
+
+    public BankingAccount(String accountHolderName, Double Balance)
+    {
+        this.accountHolderName=accountHolderName;
+        this.Balance=Balance;
+    }
+
+    public void deposit(Double amount)
+    {
+        Balance+=amount;
+        System.out.println("Deposit of $" + amount + " successful");
+    }
+    public double withdraw(Double amount){
+        {
+            if(Balance>=amount)
+            {
+                  Balance-=amount;
+                  System.out.println("Withdrawal of $" + amount + " successful");
+                 
+            }
+            
+           else{
+           
+            System.out.println("Not much amount");
+            System.exit(0);
+           }
+           return amount;
+        
+        }
+    }
+    public String getAccountHolderName(){
+
+        return accountHolderName;
+    }
+    public double getBalance(){
+        return Balance;
+    }
+
+    public class BankingSystem{
+
+  public static void main(String[] args) {
+        // Create a new bank account
+        BankingAccount account = new BankingAccount("John Doe", 1000.0);
+
+        // Deposit and withdraw funds
+        account.deposit(500.0);
+        account.withdraw(200.0);
+        String accountHolderName = account.getAccountHolderName();
+        double balance = account.getBalance();
+
+        // Display account information
+        System.out.println("Account Holder Name: " + accountHolderName);
+        System.out.println("Account Balance: $" + balance);
+
+
+    }
+
+    
+}
+
+Q2. Write a Program where you inherit method from parent class and show method Overridden Concept?
+A2. 
+     public class Animal{
+
+               public void makeSound(){
+              System.out.println("Sound made by animals");
+              }
+}
+
+//here is a class named Dog which is extending all the properties of its parent class i.e. Animal
+
+public class Dog extends Animal{
+
+         @Overriding
+        public void makeSound()
+       {
+              System.out.println("Dog's sound");
+      }
+public Class  main
+{
+     public static void main(String[] args) {
+
+       Animal a= new Animal();
+       a.makeSound();  
+       Dog d= new Dog();
+       d.makeSound();  //returns : Dog's sound
+       //Upcasting: Parent reference pointing to a Child object
+      Animal c= new Dog(); //returns : Dog's sound
+      c.makeSound();
+}
+}
+Q3.Write a program to show run time polymorphism in java?
+A3. 
+   class Animal {
+    // Method to be overridden
+    public void makeSound() {
+        System.out.println("The animal makes a sound");
+    }
+}
+
+// Child classes inheriting from Animal
+class Dog extends Animal {
+    // Method overriding the makeSound method of the Animal class
+    @Override
+    public void makeSound() {
+        System.out.println("The dog barks");
+    }
+}
+
+class Cat extends Animal {
+    // Method overriding the makeSound method of the Animal class
+    @Override
+    public void makeSound() {
+        System.out.println("The cat meows");
+    }
+}
+
+// Main class to test runtime polymorphism
+public class PolymorphismExample {
+    public static void main(String[] args) {
+        // Create an array of Animal objects
+        Animal[] animals = new Animal[2];
+        animals[0] = new Dog();
+        animals[1] = new Cat();
+
+        // Iterate over the array and call the makeSound method
+        for (Animal animal : animals) {
+            animal.makeSound(); // Calls the appropriate overridden method at runtime
+        }
+    }
+}
+
+Q4.Write a program to show Compile time polymorphism in java?
+A4. // Class with overloaded methods
+class MathOperations {
+    // Method with two integer parameters
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method with three integer parameters
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Method with two double parameters
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+
+// Main class to test compile-time polymorphism
+public class PolymorphismExample {
+    public static void main(String[] args) {
+        MathOperations math = new MathOperations();
+
+        int sum1 = math.add(5, 10); // Calls the add method with two integer parameters
+        System.out.println("Sum 1: " + sum1);
+
+        int sum2 = math.add(2, 4, 6); // Calls the add method with three integer parameters
+        System.out.println("Sum 2: " + sum2);
+
+        double sum3 = math.add(2.5, 3.7); // Calls the add method with two double parameters
+        System.out.println("Sum 3: " + sum3);
+    }
+}
+Q5. Achieve loose coupling in java by using OOPs  concept?
+
+// Interface for the service
+interface Service {
+    void performOperation();
+}
+
+// Implementation of the service
+class ServiceImpl implements Service {
+    @Override
+    public void performOperation() {
+        System.out.println("Performing the operation");
+    }
+}
+
+// Client class
+class Client {
+    private Service service;
+
+    // Constructor-based dependency injection
+    public Client(Service service) {
+        this.service = service;
+    }
+
+    public void executeOperation() {
+        service.performOperation();
+    }
+}
+
+// Main class to test loose coupling
+public class LooseCouplingExample {
+    public static void main(String[] args) {
+        Service service = new ServiceImpl(); // Concrete implementation
+        Client client = new Client(service); // Injecting the dependency
+
+        client.executeOperation(); // Perform the operation
+    }
+}
+In this example, we have an interface called Service that defines the contract for a service. The ServiceImpl class implements this interface and provides the actual implementation of the service.
+
+The Client class depends on the Service interface rather than the concrete implementation. It accepts an instance of the Service interface through the constructor, achieving dependency injection. This allows the client class to work with any implementation of the Service interface without being tightly coupled to a specific implementation.
+
+In the LooseCouplingExample class (the main class), we create an instance of the ServiceImpl class and pass it to the Client constructor, injecting the dependency. The client can then execute the operation by invoking the executeOperation method.
+
+By using dependency injection, the client class (Client) remains decoupled from the concrete implementation (ServiceImpl) of the service. This promotes loose coupling and enables flexibility in swapping or modifying implementations without affecting the client code.
+
+Q6. What is the benefit of encapsulation in java?
+A6.
+
+Encapsulation in Java is the concept of bundling data and methods together within a class and providing controlled access to that data through methods. It helps to achieve data hiding, abstraction, and modularity. Here are some of the key benefits of encapsulation:
+
+Encapsulation in Java is the concept of bundling data and methods together within a class and providing controlled access to that data through methods. It helps to achieve data hiding, abstraction, and modularity. Here are some of the key benefits of encapsulation:
+
+Data Protection: Encapsulation provides a way to protect the internal state of an object by making data members private.
+Information Hiding: By encapsulating data within a class, you can hide the internal implementation details and expose only the necessary interfaces to interact with the object. 
+Code Flexibility and Reusability: Encapsulation enables you to modify the internal implementation of a class without affecting the code that uses the class. 
+Code Organization and Modularity: Encapsulation facilitates modular design by grouping related data and behavior within a class. 
+Enhanced Security: Encapsulation contributes to improved security by controlling access to data.
+
+Q7.Is java a t 100% Object oriented Programming language? If no why ?
+A7. ava is often considered to be a predominantly object-oriented programming language, but it is not strictly a 100% object-oriented programming language. The reasons for this are as follows:
+
+Primitive Data Types: Java includes primitive data types such as int, boolean, float, etc., which are not objects. These types are not treated as objects and do not have associated methods or inheritance hierarchies like objects. However, Java provides wrapper classes (e.g., Integer, Boolean, Float) for these primitive types, allowing them to be used in an object-oriented context.
+Static Members: Java allows the declaration of static variables and static methods in classes. These members are associated with the class itself rather than with specific instances of the class. Static members can be accessed without creating an object of the class, which deviates from the pure object-oriented concept of interacting solely through objects.
+
+Q8.What are the advantages of abstraction in java?
+A8.
+Simplified Complexity: Abstraction allows you to focus on the essential aspects of an entity or system while hiding unnecessary details. It simplifies the complexity of a system, making it easier to understand and work with. By abstracting away the implementation details, you can deal with concepts at a higher level of abstraction, leading to cleaner and more concise code.
+
+Code Reusability: Abstraction promotes code reusability by creating abstract classes and interfaces. Abstract classes provide a blueprint for derived classes to inherit common behavior and attributes, reducing code duplication. Interfaces define contracts that classes can implement, enabling polymorphism and facilitating code interchangeability. By programming to abstractions, you can write flexible and reusable code.
+
+Encapsulation and Information Hiding: Abstraction is closely tied to encapsulation. It allows you to encapsulate the essential details within an abstract class or interface while hiding the internal implementation. This helps in managing the complexity and dependencies of a system, making it easier to maintain, modify, and understand. Clients interacting with the abstraction are shielded from the underlying implementation, improving the overall design and promoting loose coupling.
+
+Q9.What is an abstraction explained with an Example?
+A9.// Abstract class representing a shape
+abstract class Shape {
+    // Abstract method to calculate area
+    public abstract double calculateArea();
+
+    // Abstract method to calculate perimeter
+    public abstract double calculatePerimeter();
+}
+
+// Concrete class representing a rectangle
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    // Constructor
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    // Implementing the abstract method to calculate area
+    @Override
+    public double calculateArea() {
+        return length * width;
+    }
+
+    // Implementing the abstract method to calculate perimeter
+    @Override
+    public double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+}
+
+// Concrete class representing a circle
+class Circle extends Shape {
+    private double radius;
+
+    // Constructor
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Implementing the abstract method to calculate area
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    // Implementing the abstract method to calculate perimeter
+    @Override
+    public double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+// Main class to test abstraction
+public class AbstractionExample {
+    public static void main(String[] args) {
+        Shape rectangle = new Rectangle(5, 3);
+        System.out.println("Rectangle Area: " + rectangle.calculateArea());
+        System.out.println("Rectangle Perimeter: " + rectangle.calculatePerimeter());
+
+        Shape circle = new Circle(2.5);
+        System.out.println("Circle Area: " + circle.calculateArea());
+        System.out.println("Circle Perimeter: " + circle.calculatePerimeter());
+    }
+}
+
+Q10.What is the final class in Java?
+A10. In Java, the final keyword can be used to modify classes, methods, and variables. When applied to a class, the final keyword makes the class uninheritable, meaning it cannot be extended by any other class. A final class is also known as an immutable class.
