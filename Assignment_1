@@ -1,0 +1,65 @@
+Q1.What is the difference between Compiler and Interpreter
+A1. Compiler: A compiler is a software program that translates the entire source code of a program into machine code before execution. It scans the entire code, checks for errors, and generates an executable file, which can be run independently.
+    Interpreter: An interpreter, on the other hand, executes the program line by line. It translates and executes one statement at a time without generating a separate executable file. It analyzes each line, converts it into machine code, and immediately executes it.
+
+Q2.What is the difference between JDK, JRE, and JVM?
+A2.JDK (Java Development Kit): JDK is a software development kit that provides tools required for developing, compiling, and running Java programs. It includes the Java compiler, libraries, documentation, and development tools.
+JRE (Java Runtime Environment): JRE is a runtime environment that is required to run Java applications. It includes the JVM (Java Virtual Machine) and necessary libraries.
+JVM (Java Virtual Machine): JVM is the virtual machine that executes Java bytecode. It provides a runtime environment in which Java programs are executed. JVM interprets the bytecode or, in some cases, dynamically compiles it to machine code for execution
+
+Q3.How many types of memory areas are allocated by JVM?
+A3. 1. Heap: It is used for dynamic memory allocation, including objects and arrays.
+    2. Stack: It is used for storing local variables and method call information. Each thread has its own stack.
+    3. Method Area: It stores class-level data, such as method code, runtime constant pool, static variables, and class metadata.
+    4. Program Counter (PC) Register: It stores the address of the current executing instruction.
+    5. Native Method Stack: It is used for native method execution.
+
+Q4.What is JIT compiler?
+A4. JIT (Just-In-Time) compiler is a component of the JVM that dynamically compiles bytecode into machine code during runtime. Instead of interpreting the entire bytecode, the JIT compiler identifies frequently executed sections of code (hotspots) and compiles them into native machine code. This compiled code is then executed directly by the CPU, which can significantly improve the performance of the Java application.
+
+Q5.What are the various access specifiers in Java?
+A5.1.Public: The public access specifier allows unrestricted access to a class, method, or variable from anywhere in the program.
+   2.Protected: The protected access specifier allows access within the same package or by subclasses even in different packages.
+   3.Default (no specifier): If no access specifier is specified, it is considered as the default access specifier. It allows access within the same package only.
+   4.Private: The private access specifier restricts access to only within the same class.
+
+Q6.What is a compiler in Java?
+A6. In Java, a compiler is a software tool that translates the human-readable Java source code into a platform-independent bytecode representation. It performs lexical analysis, syntax analysis, semantic analysis, and generates the corresponding bytecode. The bytecode can then be executed by the JVM.
+
+Q7.Explain the types of variables in Java?
+A7. 1.Local variables: These variables are declared within a method or a block and are accessible only within that scope.
+    2.Instance variables: Also known as non-static variables, these variables belong to an instance of a class and have a separate copy for each object.
+    3.Class variables: Also known as static variables, these variables are associated with the class rather than with instances of the class. They have only one copy shared by all objects of the class.
+
+Q8.What are the Datatypes in Java?
+A8. Java supports both primitive and reference data types. The primitive data types in Java are:
+
+byte
+short
+int
+long
+float
+double
+boolean
+char
+The reference data types include classes, interfaces, arrays, and other user-defined types.\
+
+Q9.What are the identifiers in java?
+A9.Identifiers in Java are names used for classes, variables, methods, labels, and other programming elements. They follow certain rules:
+Must start with a letter, underscore (_), or dollar sign ($).
+Can contain letters, digits, underscores, or dollar signs.
+Should not be a reserved keyword in Java.
+Must not exceed the maximum length limit.
+
+Q10.Explain the architecture of JVM 
+A10.The architecture of the JVM (Java Virtual Machine) consists of three main components:
+
+Class Loader: It loads Java class files into memory dynamically as they are referenced during runtime.
+Execution Engine: It executes the bytecode by interpreting it or dynamically compiling it into machine code.
+Memory Area: It consists of various runtime data areas such as the method area, heap, stack, and program counter register, which are responsible for memory allocation and management during program execution.
+These components work together to provide a runtime environment for Java programs, allowing them to be executed on different platforms without the need for recompilation.
+
+
+
+
+
